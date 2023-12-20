@@ -29,7 +29,7 @@ namespace WpfBackgroundServiceNet8_2.Services
                 //Prevent to ExecuteAsync to be executed during stop operations
                 var linkedSourceToken = CancellationTokenSource.CreateLinkedTokenSource(stoppingToken, _cts.Token).Token;
 
-                while(stoppingToken.IsCancellationRequested == false)
+                while(linkedSourceToken.IsCancellationRequested == false)
                 {
                     //Prevent new BackgroundLongOperation to be executed before previous BackgroundLongOperation was ended
                     if (_operationInProgress == false)
