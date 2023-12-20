@@ -21,7 +21,7 @@ namespace WpfBackgroundServiceNet8_2.Services
         {
             _logger.LogInformation($"{nameof(StartAsync)} of {nameof(BackgroundWorkerInitializer)} called - {DateTime.Now}");
 
-            await InitOperationAsync();
+            await InitOperationAsync().ConfigureAwait(false);
 
             _logger.LogInformation($"{nameof(StartAsync)} of {nameof(BackgroundWorkerInitializer)} completed {DateTime.Now}");
         }
@@ -30,7 +30,7 @@ namespace WpfBackgroundServiceNet8_2.Services
         {
             _logger.LogInformation($"{nameof(StopAsync)} of {nameof(BackgroundWorkerInitializer)} STARTED - {DateTime.Now}");
 
-            await Task.Delay(2000);
+            await Task.Delay(2000).ConfigureAwait(false);
 
             _logger.LogInformation($"{nameof(StopAsync)} of {nameof(BackgroundWorkerInitializer)} ENDED - {DateTime.Now}");
         } 

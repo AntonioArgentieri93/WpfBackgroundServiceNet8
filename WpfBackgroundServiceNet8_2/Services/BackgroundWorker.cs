@@ -36,12 +36,12 @@ namespace WpfBackgroundServiceNet8_2.Services
                     {
                         _operationInProgress = true;
 
-                        await BackgroundLongOperation();
+                        await BackgroundLongOperation().ConfigureAwait(false);
 
                         _operationInProgress = false;
                     }
 
-                    await Task.Delay(2000, linkedSourceToken);
+                    await Task.Delay(2000, linkedSourceToken).ConfigureAwait(false);
                 }
             }
             catch (TaskCanceledException)
@@ -56,7 +56,7 @@ namespace WpfBackgroundServiceNet8_2.Services
 
             _logger.LogInformation($"{nameof(StopAsync)} of {nameof(BackgroundWorker)} STARTED - {DateTime.Now}");
 
-            await Task.Delay(2000);
+            await Task.Delay(2000).ConfigureAwait(false);
 
             _logger.LogInformation($"{nameof(StopAsync)} of {nameof(BackgroundWorker)} ENDED - {DateTime.Now}");
         }
