@@ -39,7 +39,7 @@ namespace WpfBackgroundServiceNet8_2.Services
         {
             _logger.LogInformation($"{nameof(InitOperationAsync)} STARTED - {DateTime.Now}");
 
-            await Task.Delay(1000);
+            await Task.Delay(1000).ConfigureAwait(false);
 
             _logger.LogInformation($"{nameof(InitOperationAsync)} ENDED - {DateTime.Now}");
         }
